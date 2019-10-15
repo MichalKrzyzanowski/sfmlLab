@@ -1,5 +1,5 @@
-#include "Player.h"
-#include "NPC.h"
+#include <Player.h>
+#include <NPC.h>
 
 class Game
 {

@@ -5,7 +5,9 @@ using namespace sf;
 
 sf::RenderWindow* window = new RenderWindow(sf::VideoMode(800, 600), "Launching...");;
 
-Game::Game(){}
+Game::Game()
+{
+}
 
 void Game::initialize()
 {
@@ -39,14 +41,20 @@ void Game::update()
 		npc->update();
 	}
 
+	// collision
+	if (player->m_sprite.getGlobalBounds().intersects(npc->m_sprite.getGlobalBounds()))
+	{
+		std::cout << "Collision!!!";
+	}
+
 }
 
 void Game::draw()
 {
 	window->clear();
 	//window->draw(shape);
-	player->draw();
-	npc->draw();
+	player->draw(window);
+	npc->draw(window);
 	window->display();
 }
 
